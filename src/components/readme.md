@@ -1,3 +1,4 @@
+```vue
 <template>
   <div id="app">
     <DragVerify
@@ -34,5 +35,5 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>
+```
