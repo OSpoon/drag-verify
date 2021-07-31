@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+      #slideway {
+        background-color: #7ac23c;
+        height: 34px;
+        width: 0px;
+        transition: width 0.2s ease;
+      }
+      #handler {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 40px;
+        height: 32px;
+        border: 1px solid #ccc;
+        cursor: move;
+        transition: left 0.2s ease;
+        background: #fff
+          url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAALNJREFUWEft1sENgzAMBVBItuk+ZZIoZ66xMgndp+NEle+I2Ja/0oM5Qsh/fGQp+7b42hfnbwGIBv6/gdbamXO+Sinfu4khojffr7V+LBP12EDv/TXGuHjjlNJxhyAifs6Iw4KY/gI0Ygrgr0ciRAAkQgxAIVQABEIN8EaYAJ4IE8BzKtQAz3BuUgXwDlcBEOFiACpcBECGTwHo8CmAFyw9D1gOGNp3VGOo3VyyPgDRQDTwA8Qr1SGOkJt6AAAAAElFTkSuQmCC")
+          no-repeat center;
+      }
+    </style>
+    <script>
+      let w = 0;
+      setInterval(() => {
+        const slideway = document.querySelector("#slideway");
+        slideway.style.width = `${w++}px`;
+        const handler = document.querySelector("#handler");
+        handler.style.left = `${w++}px`;
+      }, 50);
+    </script>
+  </head>
+  <body>
+    <p><div id="slideway"></div></p>
+    <p><div id="handler"></div></p>
+  </body>
+</html>

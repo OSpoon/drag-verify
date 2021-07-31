@@ -23,7 +23,7 @@ class Bus {
 export default class DragVerify {
   constructor(complete, reset) {
     this.template = document.querySelector("#drag-verify");
-    this.dragbg = document.querySelector("#drag-bg");
+    this.dragbg = document.querySelector("#slideway");
     this.handler = document.querySelector("#handler");
     this.bus = new Bus();
     this.initEvents();
@@ -110,7 +110,7 @@ export default class DragVerify {
   // 验证成功
   complete() {
     this.template.className = "drag-verify-pass";
-    this.handler.classList.add("handler-bg-pass");
+    this.handler.classList.add("handler-icon-pass");
     this.handler.onmousedown = null;
     this.handler.ontouchstart = null;
     this.bus.emit("complete");
@@ -118,7 +118,8 @@ export default class DragVerify {
 
   // 恢复原始状态
   reset() {
-    this.handler.classList.remove("handler-bg-pass");
+    this.template.className = "unselect";
+    this.handler.classList.remove("handler-icon-pass");
     this.updateDistance(0);
     this.initEvents();
     this.bus.emit("reset");
@@ -138,7 +139,6 @@ export default class DragVerify {
 
   // 取消动画
   cancelTransition() {
-    this.template.className = "unselect";
     this.updateStyle([this.handler, this.dragbg], "transition", "none");
   }
 
